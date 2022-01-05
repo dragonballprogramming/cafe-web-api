@@ -2,12 +2,13 @@ from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from random import choice
 from sqlalchemy.sql import func
+import os
 
 random = choice
 
 app = Flask(__name__)
 
-my_api_key = "3S#&lF9aQCIxO"
+my_api_key = os.environ.get("MY_API_KEY")
 
 ##Connect to Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'

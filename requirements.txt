@@ -161,7 +161,7 @@ Pygments==2.6.1
 PyJWT==1.7.1
 pynndescent==0.5.4
 pyobjc==7.3
-pyobjc-core==7.3
+pyobjc-core==
 pyobjc-framework-Accessibility==7.3
 pyobjc-framework-Accounts==7.3
 pyobjc-framework-AddressBook==7.3
