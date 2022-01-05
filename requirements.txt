@@ -163,8 +163,6 @@ PyJWT==1.7.1
 pynndescent==0.5.4
 pyobjc==7.3
 pyobjc-framework-Accounts==7.3
-pyobjc-framework-AddressBook==7.3
-pyobjc-framework-AdServices==7.3
 pyobjc-framework-AdSupport==7.3
 pyobjc-framework-AppleScriptKit==7.3
 pyobjc-framework-AppleScriptObjC==7.3
