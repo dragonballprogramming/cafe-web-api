@@ -51,15 +51,15 @@ def random_choice():
 @app.route('/all', methods=['GET'])
 def all():
     cafes = []
-    key = request.args.get('key')
-    if key == my_api_key:
-        all_cafes = db.session.query(Cafe).all()
-        for x in range(len(all_cafes)):
-            cafe = Cafe.query.get(x+1)
-            cafes.append(to_dict(cafe))
-        return jsonify(cafes)
-    else:
-        return jsonify(error={"No Access": " Sorry you do not have access to this feature"})
+    # key = request.args.get('key')
+    # if key == my_api_key:
+    all_cafes = db.session.query(Cafe).all()
+    for x in range(len(all_cafes)):
+        cafe = Cafe.query.get(x+1)
+        cafes.append(to_dict(cafe))
+    return jsonify(cafes)
+    # else:
+    #     return jsonify(error={"No Access": " Sorry you do not have access to this feature"})
 
 @app.route('/cafes', methods=["GET"])
 def cafes():
