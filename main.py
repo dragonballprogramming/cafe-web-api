@@ -34,7 +34,7 @@ class Cafe(db.Model):
     can_take_calls = db.Column(db.Boolean, nullable=True, default=False, server_default="false")
     coffee_price = db.Column(db.String(250), nullable=True)
 
-# db.create_all()
+db.create_all()
 
 @app.route("/")
 def home():
