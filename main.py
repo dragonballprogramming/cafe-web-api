@@ -92,44 +92,44 @@ def search():
 ## HTTP POST - Create Record
 @app.route('/add', methods=['POST'])
 def add():
-    # key = request.args.get('key')
-    # if key == my_api_key:
-    if request.method == "POST":
-        if request.form.get('has_toilet').strip('') == 1:
-            has_toilet_info = True
+    key = request.args.get('key')
+    if key == my_api_key:
+        if request.method == "POST":
+            if request.form.get('has_toilet').strip('') == 1:
+                has_toilet_info = True
+            else:
+                has_toilet_info = False
+            if request.form.get('has_wifi').strip('') == 1:
+                has_wifi_info = True
+            else:
+                has_wifi_info = False
+            if request.form.get('has_sockets').strip('') == 1:
+                has_socket_info = True
+            else:
+                has_socket_info = False
+            if request.form.get('can_take_calls').strip('') == 1:
+                can_take_calls_info = True
+            else:
+                can_take_calls_info = False
+            #create new record
+            new_cafe = Cafe(
+                name=request.form.get('name'),
+                map_url=request.form.get('map_url'),
+                img_url=request.form.get('img_url'),
+                location=request.form.get('location'),
+                seats=request.form.get('seats'),
+                has_toilet=has_toilet_info,
+                has_wifi=has_wifi_info,
+                has_sockets=has_socket_info,
+                can_take_calls=can_take_calls_info,
+                coffee_price=request.form.get('coffee_price')
+            )
+            print(new_cafe)
+            db.session.add(new_cafe)
+            db.session.commit()
+            return "your form was successfully submitted"
         else:
-            has_toilet_info = False
-        if request.form.get('has_wifi').strip('') == 1:
-            has_wifi_info = True
-        else:
-            has_wifi_info = False
-        if request.form.get('has_sockets').strip('') == 1:
-            has_socket_info = True
-        else:
-            has_socket_info = False
-        if request.form.get('can_take_calls').strip('') == 1:
-            can_take_calls_info = True
-        else:
-            can_take_calls_info = False
-        #create new record
-        new_cafe = Cafe(
-            name=request.form.get('name'),
-            map_url=request.form.get('map_url'),
-            img_url=request.form.get('img_url'),
-            location=request.form.get('location'),
-            seats=request.form.get('seats'),
-            has_toilet=has_toilet_info,
-            has_wifi=has_wifi_info,
-            has_sockets=has_socket_info,
-            can_take_calls=can_take_calls_info,
-            coffee_price=request.form.get('coffee_price')
-        )
-        print(new_cafe)
-        db.session.add(new_cafe)
-        db.session.commit()
-        return "your form was successfully submitted"
-        # else:
-        #     return jsonify(error={"No Access": " Sorry you do not have access to this feature"})
+            return jsonify(error={"No Access": " Sorry you do not have access to this feature"})
 
 ## HTTP PUT/PATCH - Update Record
 ##PATCH
