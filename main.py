@@ -7,7 +7,7 @@ import os
 random = choice
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 my_api_key = os.environ.get("MY_API_KEY")
 
 ##Connect to Database
